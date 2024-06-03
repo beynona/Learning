@@ -41,12 +41,38 @@ public class DataTypesAndLogicOperations
         */
     }
 
+    private struct MyStruct
+    {
+        public int a;
+        public double b;
+        public string c;
+    }
+    // ref позволяет изменять значимые переменные (структуры и енамы) по ссылке в стеке
+    private void RefOp(ref MyStruct myStruct)
+    {
+        myStruct.a = -5;
+        myStruct.b = 3;
+        myStruct.c = "data";
+    }
+    
     private void NullOp()
     {
         string str = null;
         
         // оператор ?? проверяет ссылочные данные на null, иначе дефолтное поведение
         Console.WriteLine(str ?? "нет данных");
+        
+        // оператор присваивания объедидения с null значениями: ??=
+        string st = null;
+        st ??= string.Empty;
+        Console.WriteLine(st);
+    }
+
+    private void ConditionalNull(int[] arr)
+    {
+        // Оператор условного null - ?, если наш массив налл, то дальнейший код не выполняется.
+        // Как альтернатива через ?? задаём дефолтное поведение
+        Console.WriteLine($"Array sum: {arr?.Sum() ?? 0}");
     }
 
     private void TernarniyOp(int a, string b)
