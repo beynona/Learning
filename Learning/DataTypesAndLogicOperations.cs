@@ -47,8 +47,18 @@ public class DataTypesAndLogicOperations
         public double b;
         public string c;
     }
-    // ref позволяет изменять значимые переменные (структуры и енамы) по ссылке в стеке
+    // ref можно не присваивать значение,
+    // позволяет изменять значимые переменные (структуры и енамы) по ссылке в стеке
     private void RefOp(ref MyStruct myStruct)
+    {
+        myStruct.a = -5;
+        myStruct.b = 3;
+        myStruct.c = "data";
+    }
+    
+    // out - обязаны присвоить значение переменной
+    // позволяет изменять значимые переменные (структуры и енамы) по ссылке в стеке
+    private void OutOp(out MyStruct myStruct)
     {
         myStruct.a = -5;
         myStruct.b = 3;
