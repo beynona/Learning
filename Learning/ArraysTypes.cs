@@ -25,4 +25,30 @@ public class ArraysTypes
             { 6, 7, 6, 5, 4 }
         };
     }
+    
+    // Param - неизвестное число элементов в массиве
+    public int ParamOp(string str, params int[] param)
+    {
+        int res = 0;
+        string st = str;
+
+        for (int i = 0; i < param.Length; i++)
+        {
+            res += param[i];
+        }
+        
+        return res;
+    }
+    private void ParamObj(params object[] param)
+    {
+        foreach (var obj in param)
+        {
+            Console.WriteLine($"{obj.GetType()} = {obj}");
+        }
+    }
+    private void Sum()
+    {
+        int a = ParamOp("t", 4, 3);
+        int b = ParamOp("p", 5, 6, 7, 8);
+    }
 }

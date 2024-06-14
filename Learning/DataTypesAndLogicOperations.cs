@@ -41,6 +41,21 @@ public class DataTypesAndLogicOperations
         */
     }
 
+    // naming parameters
+    private int NamingOp(int a, int b)
+    {
+        return a + b;
+    }
+    private void NamingMain()
+    {
+        NamingOp(b: 5, a: 9);
+    }
+    // optional parameters
+    private int Sum(int a, int b, bool enable = false)
+    {
+        return enable ? a + b : 0;
+    }
+
     private struct MyStruct
     {
         public int a;
@@ -56,8 +71,9 @@ public class DataTypesAndLogicOperations
         myStruct.c = "data";
     }
     
-    // out - обязаны присвоить значение переменной
-    // позволяет изменять значимые переменные (структуры и енамы) по ссылке в стеке
+    // out - обязаны присвоить значение переменной в любом месте где есть out
+    // позволяет изменять значимые переменные (структуры и енамы) по ссылке в стеке.
+    // При объявлении out мы гарантируем, что где-то переменной будет присвоено значение.
     private void OutOp(out MyStruct myStruct)
     {
         myStruct.a = -5;
@@ -76,6 +92,29 @@ public class DataTypesAndLogicOperations
         string st = null;
         st ??= string.Empty;
         Console.WriteLine(st);
+    }
+    
+    // In - позволяет только получить данные, но не изменять их
+    struct Point
+    {
+        public float x;
+        public float y;
+        public float z;
+    }
+    // копируем все переменные Point в память для новой переменной
+    static void Fo(Point p)
+    {
+        
+    }
+    // смотрим данные в памяти по ссылке. Не тратим память на копирование
+    // мы можем только смотреть, но не изменять (readonly)
+    static void InFo(in Point p)
+    {
+        var x = p.x;
+    }
+    private void InMain()
+    {
+        Point p = new Point();
     }
 
     private void ConditionalNull(int[] arr)

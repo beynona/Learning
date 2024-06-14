@@ -1,3 +1,5 @@
-﻿
-    
-Console.WriteLine("Hello, World!");
+﻿using Learning;
+
+//Recursion
+Recursion.Item item = Recursion.InitItem();
+Recursion.Print(item);
