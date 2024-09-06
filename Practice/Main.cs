@@ -19,5 +19,10 @@ public abstract class Program
         {
             Console.Write($"{fore} ");
         }
+        Console.WriteLine();
+        //recursion sum
+        int value = 541;
+        var sum = Recursion.SumNumbers(value);
+        Console.WriteLine(sum);
     }
 }
