@@ -11,7 +11,6 @@ public static class Recursion
             return value;
         }
 
-        var number = value % 10;
-        return SumNumbers(value / 10) + number;
+        return SumNumbers(value / 10) + value % 10;
     }
 }
